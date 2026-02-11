@@ -199,6 +199,7 @@ categories = {
 "Ground"]
     }
 
+print('starting generation')
 with open('similar_words_glove.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerow(['Category', 'Word', 'Association', 'Similarity'])
@@ -209,8 +210,8 @@ with open('similar_words_glove.csv', 'w', newline='', encoding='utf-8') as f:
             word_lower = word.lower()
 
             if word_lower in model_glove:
-                top10000 = model_glove.most_similar(word_lower, topn=10000)
-                for association, similarity in tqdm(top10000):
+                top20000 = model_glove.most_similar(word_lower, topn=20000)
+                for association, similarity in tqdm(top20000):
                         writer.writerow([cat, word_lower, association, similarity])
 
 
