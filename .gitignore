@@ -1,0 +1,7 @@
+.venv
+*.kv
+.Rhistory
+*.R 
+*.npy
+*.csv
+*.xlsx
