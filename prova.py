@@ -11,8 +11,8 @@ import gensim.downloader as api # per scaricare e caricare in python il modello 
 
 categories = {}
 
-df = pd.read_excel(r"C:\Users\extra\Documents\PhD\Projects\Inner Speech\Visiting Durham\Project\Norming Study\SWOW+WE\RM_GloVe\dataset_word_embeddings_SWOWRW.xlsx")
-# df = pd.read_excel(r"C:\Users\extra\Documents\PhD\Projects\Inner Speech\Visiting Durham\Project\Norming Study\SWOW+WE\R123_GloVe\dataset_word_embeddings_SWOWR123.xlsx")
+# df = pd.read_excel(r"C:\Users\extra\Documents\PhD\Projects\Inner Speech\Visiting Durham\Project\Norming Study\SWOW+WE\RM_GloVe\dataset_word_embeddings_SWOWRW.xlsx")
+df = pd.read_excel(r"C:\Users\extra\Documents\PhD\Projects\Inner Speech\Visiting Durham\Project\Norming Study\SWOW+WE\R123_GloVe\dataset_word_embeddings_SWOWR123.xlsx")
 
 for _, row in df.iterrows():
     word = str(row["Word"]).strip()
@@ -44,8 +44,8 @@ model_glove.save("glove-wiki-gigaword-300.kv") # è un oggetto KeyedVectors: mem
 model_glove = KeyedVectors.load("glove-wiki-gigaword-300.kv", mmap='r')  # occupa meno RAM
 
 print('starting generation')
-with open('similar_words_GloVe_SWOWRW.csv', 'w', newline='', encoding='utf-8') as f:
-# with open('similar_words_GloVe_R123.csv', 'w', newline='', encoding='utf-8') as f:
+# with open('similar_words_GloVe_SWOWRW_substitutions.csv', 'w', newline='', encoding='utf-8') as f:
+with open('similar_words_GloVe_SWOWR123_substitutions.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerow(['Category', 'Word', 'Association', 'Similarity'])
 
